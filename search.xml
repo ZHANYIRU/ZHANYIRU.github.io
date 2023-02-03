@@ -3,8 +3,28 @@
   <entry>
     <title>useForm</title>
     <url>/useForm/</url>
-    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>紀錄如何使用 useForm 此 Hook 來套用在表單上</p>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>紀錄如何使用 useForm 此 Hook 來套用在表單上<br>react-hook-form 是專門為驗證表單、提交表單設計的，使用起来比傳統的 onChange、setState 要方便很多。<br>而且它進一步做了優化，减少了不必要的 render。</p>
 <span id="more"></span>
+
+<h1 id="Get-Started"><a href="#Get-Started" class="headerlink" title="Get Started"></a>Get Started</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install react-hook-form</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>在要使用的頁面引入</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useForm &#125; <span class="keyword">from</span> <span class="string">&quot;react-hook-form&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>常用的幾個方法</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;</span><br><span class="line">  register, <span class="comment">//註冊input</span></span><br><span class="line">  handleSubmit, <span class="comment">//表單送出</span></span><br><span class="line">  watch, <span class="comment">//監聽表單欄位</span></span><br><span class="line">  <span class="attr">formState</span>: &#123; errors &#125;, <span class="comment">//錯誤訊息</span></span><br><span class="line">&#125; = <span class="title function_">useForm</span>(&#123;</span><br><span class="line">  <span class="comment">//defaultValues 設定欄位預設值</span></span><br><span class="line">  <span class="attr">defaultValues</span>: &#123; <span class="attr">username</span>: <span class="string">&quot;&quot;</span>, <span class="attr">age</span>: <span class="string">&quot;&quot;</span>, <span class="attr">mail</span>: <span class="string">&quot;&quot;</span> &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="register："><a href="#register：" class="headerlink" title="register："></a><code>register</code>：</h2><p>在要註冊的 input 直接展開放入，第一個值為欄位的<code>name</code></p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;input type=<span class="string">&quot;text&quot;</span> &#123;...<span class="title function_">register</span>(<span class="string">&quot;username&quot;</span>)&#125; /&gt;</span><br><span class="line"><span class="comment">//等同於</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> /&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>後面可以放入欄位的條件(例如是否必填-required)，以及驗證錯誤時的錯誤訊息</p>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;input</span><br><span class="line">  type=<span class="string">&quot;text&quot;</span></span><br><span class="line">  &#123;...<span class="title function_">register</span>(<span class="string">&quot;username&quot;</span>, &#123;</span><br><span class="line">    <span class="attr">required</span>: &#123;</span><br><span class="line">      <span class="attr">value</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">message</span>: <span class="string">&quot;此為必填項目&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//當然也可以限制長度</span></span><br><span class="line">    <span class="attr">maxLength</span>: &#123;</span><br><span class="line">      <span class="attr">value</span>: <span class="number">5</span>,</span><br><span class="line">      <span class="attr">message</span>: <span class="string">&quot;最大輸入5位數&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;)&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>也有正則表達也能放，更多內容可以參考官網 <a href="https://react-hook-form.com/api/useform/register">https://react-hook-form.com/api/useform/register</a></p>
+<h2 id="handleSubmit："><a href="#handleSubmit：" class="headerlink" title="handleSubmit："></a><code>handleSubmit</code>：</h2><p>送出後會經過這個函式的驗證才會發 request 到後端</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//簡單定義一個submit的函式</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">onForSubmit</span> = (<span class="params">formObj</span>) =&gt; &#123;</span><br><span class="line">  <span class="comment">//可以先看一下送出的資料</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(formObj);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">onSubmit</span>=<span class="string">&#123;handleSubmit(onForSubmit)&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> &#123;<span class="attr">...register</span>(&quot;<span class="attr">username</span>&quot;)&#125; /&gt;</span></span></span><br><span class="line"><span class="language-xml">  ...</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>輸出結果 <img src="https://upload.cc/i1/2023/02/03/0QocGw.png" alt="console"></p>
 ]]></content>
       <tags>
         <tag>React Hook</tag>

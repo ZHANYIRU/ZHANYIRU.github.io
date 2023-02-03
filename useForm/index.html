@@ -19,18 +19,20 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"zhanyiru.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.14.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="前言紀錄如何使用 useForm 此 Hook 來套用在表單上">
+    <meta name="description" content="前言紀錄如何使用 useForm 此 Hook 來套用在表單上react-hook-form 是專門為驗證表單、提交表單設計的，使用起来比傳統的 onChange、setState 要方便很多。而且它進一步做了優化，减少了不必要的 render。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="useForm">
 <meta property="og:url" content="https://zhanyiru.github.io/useForm/index.html">
 <meta property="og:site_name" content="YIRU&#39;s blog">
-<meta property="og:description" content="前言紀錄如何使用 useForm 此 Hook 來套用在表單上">
+<meta property="og:description" content="前言紀錄如何使用 useForm 此 Hook 來套用在表單上react-hook-form 是專門為驗證表單、提交表單設計的，使用起来比傳統的 onChange、setState 要方便很多。而且它進一步做了優化，减少了不必要的 render。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://upload.cc/i1/2023/02/03/0QocGw.png">
 <meta property="article:published_time" content="2023-02-01T08:26:23.000Z">
-<meta property="article:modified_time" content="2023-02-02T05:37:47.479Z">
+<meta property="article:modified_time" content="2023-02-03T07:30:01.551Z">
 <meta property="article:author" content="ZHAY-YI-RU">
 <meta property="article:tag" content="React Hook">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload.cc/i1/2023/02/03/0QocGw.png">
 
 
 <link rel="canonical" href="https://zhanyiru.github.io/useForm/">
@@ -139,7 +141,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Get-Started"><span class="nav-number">2.</span> <span class="nav-text">Get Started</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#register%EF%BC%9A"><span class="nav-number">3.1.</span> <span class="nav-text">register：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#handleSubmit%EF%BC%9A"><span class="nav-number">3.2.</span> <span class="nav-text">handleSubmit：</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -235,7 +237,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2023-02-02 13:37:47" itemprop="dateModified" datetime="2023-02-02T13:37:47+08:00">2023-02-02</time>
+      <time title="修改時間：2023-02-03 15:30:01" itemprop="dateModified" datetime="2023-02-03T15:30:01+08:00">2023-02-03</time>
     </span>
 
   
@@ -245,14 +247,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">文章字數：</span>
-      <span>27</span>
+      <span>1.3k</span>
     </span>
     <span class="post-meta-item" title="所需閱讀時間">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-      <span>1 分鐘</span>
+      <span>2 分鐘</span>
     </span>
 </div>
 
@@ -263,8 +265,28 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>紀錄如何使用 useForm 此 Hook 來套用在表單上</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>紀錄如何使用 useForm 此 Hook 來套用在表單上<br>react-hook-form 是專門為驗證表單、提交表單設計的，使用起来比傳統的 onChange、setState 要方便很多。<br>而且它進一步做了優化，减少了不必要的 render。</p>
 <span id="more"></span>
+
+<h1 id="Get-Started"><a href="#Get-Started" class="headerlink" title="Get Started"></a>Get Started</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install react-hook-form</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>在要使用的頁面引入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useForm &#125; <span class="keyword">from</span> <span class="string">&quot;react-hook-form&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>常用的幾個方法</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;</span><br><span class="line">  register, <span class="comment">//註冊input</span></span><br><span class="line">  handleSubmit, <span class="comment">//表單送出</span></span><br><span class="line">  watch, <span class="comment">//監聽表單欄位</span></span><br><span class="line">  <span class="attr">formState</span>: &#123; errors &#125;, <span class="comment">//錯誤訊息</span></span><br><span class="line">&#125; = <span class="title function_">useForm</span>(&#123;</span><br><span class="line">  <span class="comment">//defaultValues 設定欄位預設值</span></span><br><span class="line">  <span class="attr">defaultValues</span>: &#123; <span class="attr">username</span>: <span class="string">&quot;&quot;</span>, <span class="attr">age</span>: <span class="string">&quot;&quot;</span>, <span class="attr">mail</span>: <span class="string">&quot;&quot;</span> &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="register："><a href="#register：" class="headerlink" title="register："></a><code>register</code>：</h2><p>在要註冊的 input 直接展開放入，第一個值為欄位的<code>name</code></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">&quot;text&quot;</span> &#123;...<span class="title function_">register</span>(<span class="string">&quot;username&quot;</span>)&#125; /&gt;</span><br><span class="line"><span class="comment">//等同於</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> /&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>後面可以放入欄位的條件(例如是否必填-required)，以及驗證錯誤時的錯誤訊息</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;input</span><br><span class="line">  type=<span class="string">&quot;text&quot;</span></span><br><span class="line">  &#123;...<span class="title function_">register</span>(<span class="string">&quot;username&quot;</span>, &#123;</span><br><span class="line">    <span class="attr">required</span>: &#123;</span><br><span class="line">      <span class="attr">value</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">message</span>: <span class="string">&quot;此為必填項目&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//當然也可以限制長度</span></span><br><span class="line">    <span class="attr">maxLength</span>: &#123;</span><br><span class="line">      <span class="attr">value</span>: <span class="number">5</span>,</span><br><span class="line">      <span class="attr">message</span>: <span class="string">&quot;最大輸入5位數&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;)&#125;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>也有正則表達也能放，更多內容可以參考官網 <a target="_blank" rel="noopener" href="https://react-hook-form.com/api/useform/register">https://react-hook-form.com/api/useform/register</a></p>
+<h2 id="handleSubmit："><a href="#handleSubmit：" class="headerlink" title="handleSubmit："></a><code>handleSubmit</code>：</h2><p>送出後會經過這個函式的驗證才會發 request 到後端</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//簡單定義一個submit的函式</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">onForSubmit</span> = (<span class="params">formObj</span>) =&gt; &#123;</span><br><span class="line">  <span class="comment">//可以先看一下送出的資料</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(formObj);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">onSubmit</span>=<span class="string">&#123;handleSubmit(onForSubmit)&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> &#123;<span class="attr">...register</span>(&quot;<span class="attr">username</span>&quot;)&#125; /&gt;</span></span></span><br><span class="line"><span class="language-xml">  ...</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>輸出結果 <img src="https://upload.cc/i1/2023/02/03/0QocGw.png" alt="console"></p>
 
     </div>
 
@@ -308,13 +330,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="總字數">0k</span>
+    <span title="總字數">1k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">1 分鐘</span>
+    <span title="所需總閱讀時間">2 分鐘</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
