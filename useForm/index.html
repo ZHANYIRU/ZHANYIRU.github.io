@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://i.imgur.com/H6ihrLK.png">
 <meta property="og:image" content="https://i.imgur.com/5GJxNLR.png">
 <meta property="article:published_time" content="2023-02-01T08:26:23.000Z">
-<meta property="article:modified_time" content="2023-02-03T09:53:59.870Z">
+<meta property="article:modified_time" content="2023-02-04T01:34:42.016Z">
 <meta property="article:author" content="ZHAY-YI-RU">
 <meta property="article:tag" content="React Hook">
 <meta name="twitter:card" content="summary">
@@ -142,7 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Get-Started"><span class="nav-number">2.</span> <span class="nav-text">Get Started</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#register%EF%BC%9A"><span class="nav-number">3.1.</span> <span class="nav-text">register：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#handleSubmit%EF%BC%9A"><span class="nav-number">3.2.</span> <span class="nav-text">handleSubmit：</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Get-Started"><span class="nav-number">2.</span> <span class="nav-text">Get Started</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#register%EF%BC%9A"><span class="nav-number">3.1.</span> <span class="nav-text">register：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#handleSubmit%EF%BC%9A"><span class="nav-number">3.2.</span> <span class="nav-text">handleSubmit：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#watch%EF%BC%9A"><span class="nav-number">3.3.</span> <span class="nav-text">watch：</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -238,7 +238,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2023-02-03 17:53:59" itemprop="dateModified" datetime="2023-02-03T17:53:59+08:00">2023-02-03</time>
+      <time title="修改時間：2023-02-04 09:34:42" itemprop="dateModified" datetime="2023-02-04T09:34:42+08:00">2023-02-04</time>
     </span>
 
   
@@ -248,14 +248,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">文章字數：</span>
-      <span>1.4k</span>
+      <span>1.9k</span>
     </span>
     <span class="post-meta-item" title="所需閱讀時間">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">所需閱讀時間 &asymp;</span>
-      <span>2 分鐘</span>
+      <span>3 分鐘</span>
     </span>
 </div>
 
@@ -288,6 +288,14 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//簡單定義一個submit的函式</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">onForSubmit</span> = (<span class="params">formObj</span>) =&gt; &#123;</span><br><span class="line">  <span class="comment">//可以先看一下送出的資料</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(formObj);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">form</span> <span class="attr">onSubmit</span>=<span class="string">&#123;handleSubmit(onForSubmit)&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> &#123;<span class="attr">...register</span>(&quot;<span class="attr">username</span>&quot;)&#125; /&gt;</span></span></span><br><span class="line"><span class="language-xml">  ...</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span>;</span><br></pre></td></tr></table></figure>
 
 <p>輸出結果 <img src="https://i.imgur.com/H6ihrLK.png"><br>錯誤都會存在上面提到的<code>errors</code>，若欄位都沒填，看一下<code>console.log(errors)</code><br><img src="https://i.imgur.com/5GJxNLR.png"></p>
+<h2 id="watch："><a href="#watch：" class="headerlink" title="watch："></a><code>watch</code>：</h2><p>監聽你有註冊<code>input</code>的<code>value</code>值</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">watch</span>()); <span class="comment">//&#123;username:&#x27;colin&#x27;,age:&#x27;20&#x27;,mail:&#x27;game665987@gmail&#x27;&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">watch</span>(<span class="string">&quot;username&quot;</span>)); <span class="comment">//colin</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">watch</span>([<span class="string">&quot;username&quot;</span>, <span class="string">&quot;age&quot;</span>])); <span class="comment">//[&quot;colin&quot;,&quot;20&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<p>所以可以像下面簡單的例子，如果<code>checkbox</code>被勾選(為 true) 則顯示<code>input</code></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> watchValue = <span class="title function_">watch</span>(<span class="string">&quot;check&quot;</span>);</span><br><span class="line"></span><br><span class="line">&#123;watchValue &amp;&amp; <span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> /&gt;</span></span>&#125;</span><br><span class="line"></span><br><span class="line">&lt;input type=<span class="string">&quot;checkbox&quot;</span> &#123;...<span class="title function_">register</span>(<span class="string">&quot;check&quot;</span>)&#125; /&gt;;</span><br></pre></td></tr></table></figure>
+
+
+<p>這篇先這樣，會再分享其他用法。</p>
 
     </div>
 
@@ -331,13 +339,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="總字數">1k</span>
+    <span title="總字數">2k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="所需總閱讀時間">2 分鐘</span>
+    <span title="所需總閱讀時間">3 分鐘</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
